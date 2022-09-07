@@ -1,8 +1,12 @@
-const designsDesktop = document.querySelector("#designsDesktop").style;
-const designsMobile = document.querySelector("#designsMobile").style;
+const designsDesktop = document.querySelector("#designsDesktop");
+const designsMobile = document.querySelector("#designsMobile");
 
 if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(navigator.userAgent)) {
-    designsDesktop.display = "none";
+    if (designsDesktop) {
+        designsDesktop.style.display = "none";
+    }
 } else {
-    designsMobile.display = "none";
+    if (designsMobile) {
+        designsMobile.style.display = "none";
+    }
 }

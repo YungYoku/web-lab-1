@@ -2,17 +2,34 @@ const body = document.querySelector("body");
 const bg = document.querySelector(".design");
 const phone = document.querySelector(".phone");
 const tablet = document.querySelector(".tablet");
+const topDom = document.querySelector(".top");
+const storyDom = document.querySelector(".story");
+const statisticsDom = document.querySelector(".statistics");
+const servicesDom = document.querySelector(".services");
 let firstShowing = true;
-const height =
-    document.querySelector(".top").clientHeight
-    + document.querySelector(".story").clientHeight
-    + document.querySelector(".statistics").clientHeight
-    + document.querySelector(".services").clientHeight;
 
-phone.style.transform = `translateX(${window.innerWidth - phone.getBoundingClientRect().x}px)`;
-tablet.style.transform = `translateX(-${window.innerWidth / 2 + tablet.getBoundingClientRect().width / 2}px)`;
+const updateDefaultStyles = () => {
+    if (tablet) {
+        tablet.style.transform = `translateX(-${window.innerWidth / 2 + tablet.getBoundingClientRect().width / 2}px)`;
+    }
+
+    if (phone) {
+        phone.style.transform = `translateX(${window.innerWidth - phone.getBoundingClientRect().x}px)`;
+    }
+};
+updateDefaultStyles();
 
 function animateDesign() {
+    if (!topDom || !storyDom || !statisticsDom || !servicesDom) {
+        return;
+    }
+
+    const height =
+        topDom.clientHeight
+        + storyDom.clientHeight
+        + statisticsDom.clientHeight
+        + servicesDom.clientHeight;
+
     if (
         firstShowing &&
         (window.pageYOffset + window.innerHeight) > (height + document.querySelector(".design").clientHeight) &&
@@ -40,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
         result = "top " + (50 + y) + "%";
         result += " left " + (50 + x) + "%";
 
-        bg.style.backgroundPosition = result;
+        if (bg) {
+            bg.style.backgroundPosition = result;
+        }
     };
 });

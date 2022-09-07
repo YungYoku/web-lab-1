@@ -1,8 +1,9 @@
+const swiperTop = document.querySelector(".swiperTop");
 const lines = [
-    document.querySelector(".top__line1__bg").style,
-    document.querySelector(".top__line2__bg").style,
-    document.querySelector(".top__line3__bg").style,
-    document.querySelector(".top__line4__bg").style
+    document.querySelector(".top__line1__bg"),
+    document.querySelector(".top__line2__bg"),
+    document.querySelector(".top__line3__bg"),
+    document.querySelector(".top__line4__bg")
 ];
 
 let i = 0;
@@ -20,7 +21,10 @@ const startTimer = () => {
     let width = 0;
 
     timerInterval = setInterval(() => {
-        lines[i].width = width + "%";
+        const line = lines[i];
+        if (line) {
+            line.style.width = width + "%";
+        }
         width += 0.1;
 
         if (width >= 100) {
@@ -39,17 +43,25 @@ const startTimer = () => {
 
 const resetLinesWidth = () => {
     for (let i = 0; i < 4; i++) {
-        lines[i].width = "0";
+        const line = lines[i];
+        if (line) {
+            lines[i].style.width = "0";
+        }
     }
 };
 
 function topSlide(slide) {
-    document.querySelector(".swiperTop").swiper.slideTo(slide);
+    if (swiperTop) {
+        swiperTop.swiper.slideTo(slide);
+    }
     i = slide;
 
     resetLinesWidth();
     for (let i = 0; i < slide; i++) {
-        lines[i].width = "100%";
+        const line = lines[i];
+        if (line) {
+            line.style.width = "100%";
+        }
     }
 
     startTimer();

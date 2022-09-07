@@ -17,28 +17,37 @@ function reset(number = 0) {
             continue;
         }
 
-        infoBlocks[i - 1].style.height = "0";
-        infoBlocks[i - 1].style.paddingBottom = null;
-        infoBlocks[i - 1].style.paddingTop = null;
-        buttons[i - 1].style.transform = null;
-        setTimeout(() => {
-            infoBlocks[i - 1].style.borderTop = null;
-        }, 150);
+        const infoBlock = infoBlocks[i - 1];
+        const button = buttons[i - 1];
+        if (infoBlock && button) {
+            infoBlock.style.height = "0";
+            infoBlock.style.paddingBottom = null;
+            infoBlock.style.paddingTop = null;
+            button.style.transform = null;
+            setTimeout(() => {
+                infoBlock.style.borderTop = null;
+            }, 150);
+        }
     }
 }
 
 function showInfo(number) {
-    if (!(previousShow === number && infoBlocks[number - 1].style.height === "160px")) {
+    const infoBlock = infoBlocks[number - 1];
+
+    if (!(previousShow === number && infoBlock && infoBlock.style.height === "160px")) {
         previousShow = number;
         reset(number);
 
-        buttons[number - 1].style.transform = "rotate(180deg)";
-        infoBlocks[number - 1].style.height = "160px";
-        infoBlocks[number - 1].style.paddingTop = "10px";
-        infoBlocks[number - 1].style.paddingBottom = "10px";
-        setTimeout(() => {
-            infoBlocks[number - 1].style.borderTop = "1px solid #cccccc";
-        }, 50);
+        const button = buttons[number - 1];
+        if (infoBlock && button) {
+            button.style.transform = "rotate(180deg)";
+            infoBlock.style.height = "160px";
+            infoBlock.style.paddingTop = "10px";
+            infoBlock.style.paddingBottom = "10px";
+            setTimeout(() => {
+                infoBlock.style.borderTop = "1px solid #cccccc";
+            }, 50);
+        }
     }
 }
 

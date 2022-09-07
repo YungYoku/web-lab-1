@@ -7,10 +7,9 @@ const statisticsDom = [
     document.querySelector(".statistics__4"),
     document.querySelector(".statistics__5")
 ];
+const topDom = document.querySelector(".top");
+const storyDom = document.querySelector(".story");
 let firstShowing = true;
-const height =
-    document.querySelector(".top").clientHeight
-    + document.querySelector(".story").clientHeight;
 
 const animateStatistics = i => {
     setTimeout(() => {
@@ -24,6 +23,12 @@ const animateStatistics = i => {
 };
 
 function validate() {
+    if (!topDom || !storyDom) {
+        return;
+    }
+    
+    const height = topDom.clientHeight + storyDom.clientHeight;
+
     if (
         firstShowing &&
         (window.pageYOffset + window.screen.availHeight) > (height + document.querySelector(".statistics").clientHeight) &&
