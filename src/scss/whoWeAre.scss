@@ -1,0 +1,207 @@
+.whoWeAreDesktop {
+  .teammateWrap {
+    width: 100%;
+
+    .team__image1, .team__image2, .team__image3, .teammateImageBg {
+      width: 100%;
+      height: 395px;
+    }
+  }
+
+  .whoWeAre__info {
+    display: grid;
+    grid-template: auto / 1fr 1fr 1fr;
+    grid-gap: 30px;
+
+    > div {
+      h4, h5 {
+        text-align: center;
+      }
+
+      h4 {
+        margin: 30px 0 10px 0;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      h5 {
+        font-style: italic;
+        font-size: 15px;
+        color: #b3b3b3;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+.whoWeAreMobile, .whoWeAreDesktop {
+  .teammateWrap {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    h4, h5 {
+      text-align: center;
+    }
+
+    h4 {
+      margin: 30px 0 10px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    h5 {
+      font-style: italic;
+      font-size: 15px;
+      color: #b3b3b3;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    .teammateWrap__image {
+      position: relative;
+      max-width: 380px;
+      width: 100%;
+      height: 470px;
+      z-index: 1;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #95e1d3;
+
+      > a {
+        position: relative;
+        z-index: 2;
+        width: 55px;
+        height: 55px;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fce38a;
+        cursor: pointer;
+        border: 1px solid #f48b82;
+        transition: all 0.2s;
+
+        > svg {
+          > path, > circle {
+            fill: #f48b82;
+          }
+        }
+      }
+
+      > a:hover {
+        > svg {
+          > path, > circle {
+            fill: #ffffff;
+          }
+        }
+      }
+
+      > a:nth-child(1), > a:nth-child(2), > a:nth-child(3) {
+        border-right: none;
+      }
+    }
+
+    .teammateWrap__image:hover {
+      transition: all 0.2s;
+
+      > a {
+        transform: translate(-10px, -10px);
+        opacity: 1;
+        transition: all 0.2s;
+      }
+
+      > a:hover {
+        transform: translate(-10px, -10px);
+        background-color: #f48b82;
+        transition: all 0.2s;
+      }
+    }
+
+    .teammateWrap__image::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+
+    .teammateWrap__image:hover::before {
+      transition: all 0.2s;
+      transform: translate(-10px, -10px);
+    }
+
+    .team__image1::before {
+      background: url("../assets/img/team1.png") no-repeat center center;
+    }
+
+    .team__image1:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/team1.png") no-repeat center center;
+    }
+
+    .team__image2::before {
+      background: url("../assets/img/team2.png") no-repeat center center;
+    }
+
+    .team__image2:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/team2.png") no-repeat center center;
+    }
+
+    .team__image3::before {
+      background: url("../assets/img/team3.png") no-repeat center center;
+    }
+
+    .team__image3:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/team3.png") no-repeat center center;
+    }
+  }
+}
+
+.whoWeAreMobile {
+  display: none;
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+
+    .swiper-button-prev, .swiper-button-next {
+      color: black;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .whoWeAreDesktop {
+    .whoWeAre__info {
+      display: grid;
+      grid-template: auto auto auto / 380px;
+      padding: 0 calc(50% - 190px);
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .whoWeAreDesktop {
+    display: none;
+  }
+  .whoWeAreMobile {
+    display: block;
+
+    .teammateWrap {
+      padding-top: 10px;
+
+      .teammateWrap__image {
+        width: 70%;
+        height: 400px;
+      }
+    }
+  }
+}

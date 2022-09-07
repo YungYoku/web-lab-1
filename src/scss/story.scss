@@ -1,0 +1,179 @@
+.storyDesktop, .storyMobile {
+  .images, .imagesMobile {
+    .imageWrap {
+      width: 100%;
+      height: 250px;
+      position: relative;
+    }
+
+    .story__image {
+      position: relative;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      background-color: #95e1d3;
+
+      img {
+        position: relative;
+        z-index: 2;
+        width: 32px;
+        opacity: 0;
+        transition: all 0.2s;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        position: relative;
+        z-index: 2;
+        font-size: 18px;
+        color: white;
+        font-weight: 700;
+        opacity: 0;
+        transition: all 0.2s;
+      }
+    }
+
+    .story__image::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      background-color: #95e1d3;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      transition: all 0.2s;
+    }
+
+    .story__image:hover {
+      transition: all 0.2s;
+
+      img {
+        opacity: 1;
+        transition: all 0.2s;
+        transform: translate(-10px, -10px);
+      }
+
+      h4 {
+        opacity: 1;
+        transition: all 0.2s;
+        transform: translate(-10px, -10px);
+      }
+    }
+
+    .story__image:hover::before {
+      transition: all 0.2s;
+      transform: translate(-10px, -10px);
+    }
+
+    .story__image1::before {
+      background: url("../assets/img/aboutUs1.png") no-repeat center center;
+    }
+
+    .story__image1:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/aboutUs1.png") no-repeat center center;
+    }
+
+    .story__image2::before {
+      background: url("../assets/img/aboutUs2.png") no-repeat center center;
+    }
+
+    .story__image2:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/aboutUs2.png") no-repeat center center;
+    }
+
+    .story__image3::before {
+      background: url("../assets/img/aboutUs3.png") no-repeat center center;
+    }
+
+    .story__image3:hover::before {
+      background: linear-gradient(rgba(244, 139, 130, 0.7), rgba(252, 227, 138, 0.8)), url("../assets/img/aboutUs3.png") no-repeat center center;
+    }
+  }
+}
+
+.storyDesktop {
+  .images {
+    display: grid;
+    grid-template: 250px / 1fr 1fr 1fr;
+    grid-gap: 30px;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
+.storyMobile {
+  display: none;
+
+  .imagesMobile {
+    height: 260px;
+    position: relative;
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+      padding: 10px 0;
+
+      .swiper-button-prev, .swiper-button-next {
+        color: black;
+      }
+    }
+
+    .imageWrap {
+      top: 0;
+      left: 0;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 1s;
+    }
+
+    .story__image, {
+      width: 100%;
+      max-width: 380px;
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .storyDesktop {
+    display: none;
+  }
+  .storyMobile {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .storyMobile {
+    .imagesMobile {
+      height: 260px;
+      position: relative;
+
+      .imageWrap {
+        width: 80%;
+        margin: 0 10%;
+      }
+
+      .story__image, {
+        max-width: 240px;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .storyMobile {
+    .imagesMobile {
+      .story__image, {
+        max-width: 180px;
+      }
+    }
+  }
+}
