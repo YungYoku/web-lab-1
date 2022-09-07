@@ -26,31 +26,31 @@
         color: white;
       }
 
-      > a:nth-child(2) {
+      .top__link:nth-child(2) {
         grid-area: about;
       }
 
-      > a:nth-child(3) {
+      .top__link:nth-child(3) {
         grid-area: service;
       }
 
-      > a:nth-child(4) {
+      .top__link:nth-child(4) {
         grid-area: work;
       }
 
-      > a:nth-child(5) {
+      .top__link:nth-child(5) {
         grid-area: blog;
       }
 
-      > a:nth-child(6) {
+      .top__link:nth-child(6) {
         grid-area: contact;
       }
 
-      > a:nth-child(7) {
+      .shop {
         grid-area: shop;
       }
 
-      > a:nth-child(8) {
+      .search {
         grid-area: search;
       }
 
@@ -86,6 +86,13 @@
         transition: all 0.2s;
       }
 
+    }
+
+    nav.about,
+    nav.catalog,
+    nav.price {
+      grid-template: auto / 3fr repeat(2, 1fr) 60px 60px;
+      grid-template-areas: 'logo about service shop search';
     }
   }
 
@@ -236,6 +243,13 @@
         grid-template: auto / 2fr repeat(5, 1fr) 40px 40px;
         grid-template-areas: 'logo about service work blog contact shop search';
       }
+
+      nav.about,
+      nav.catalog,
+      nav.price {
+        grid-template: auto / 2fr repeat(2, 1fr) 40px 40px;
+        grid-template-areas: 'logo about service shop search';
+      }
     }
 
     .swiperTop {
@@ -272,6 +286,13 @@
         display: grid;
         grid-template: auto / repeat(6, 1fr) 40px 40px;
         grid-template-areas: 'logo about service work blog contact shop search';
+      }
+
+      nav.about,
+      nav.catalog,
+      nav.price {
+        grid-template: auto / repeat(3, 1fr) 40px 40px;
+        grid-template-areas: 'logo about service shop search';
       }
     }
 
@@ -324,6 +345,15 @@
           justify-content: center;
           margin-bottom: 10px;
         }
+      }
+
+      nav.about,
+      nav.catalog,
+      nav.price {
+        grid-template: auto auto / repeat(5, 1fr);
+        grid-template-areas:
+          '. . logo shop search'
+          '. about . service .';
       }
     }
 
