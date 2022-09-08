@@ -96,6 +96,51 @@
     }
   }
 
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 64px;
+    font-weight: 600;
+  }
+
+  .price-list {
+    width: 80%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    margin: 10vh 10%;
+
+    .row {
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 20px;
+
+      border: 1px solid #ffffff;
+      border-bottom: none;
+
+      &:last-child {
+        border: 1px solid #ffffff;
+      }
+
+      .column {
+        width: 50%;
+        text-align: center;
+        border-right: 1px solid #ffffff;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+  }
+
   .swiperTop {
     position: absolute;
     left: 0;
